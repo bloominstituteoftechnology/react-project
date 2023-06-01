@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import server from './backend/mock-server'
-import { resetTodos } from './backend/helpers'
-import App from './frontend/components/App'
+import server from '../../backend/mock-server'
+import { resetTodos } from '../../backend/helpers'
+import App from './App'
 
 jest.setTimeout(750)
 const waitForOptions = { timeout: 100 }
