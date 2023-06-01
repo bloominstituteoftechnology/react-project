@@ -10,7 +10,6 @@ const root = createRoot(domNode)
 
 root.render(
   <BrowserRouter>
-    <h1>React App</h1>
     <Routes>
       <Route path="/" element={<App />} />
     </Routes>

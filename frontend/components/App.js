@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
-const StyledApp = styled.div`
-  padding: 1rem;
-  width: 100%;
-  background-color: lightskyblue;
-  // button { margin-left: 4px; }
+const StyledTodo = styled.li`
+  text-decoration: ${pr => pr.complete ? 'line-through' : 'initial'};
+  cursor: pointer;
 `
 
 export default function App() {
@@ -22,20 +20,16 @@ export default function App() {
   useEffect(() => { getAll() }, [])
 
   return (
-    <StyledApp>
-      <h2>React Todos</h2>
+    <div>
       <ul>
         {
           todos.map(todo => (
-            <li key={todo.id}>
-              <span>{todo.name} {todo.complete ? 'DONE' : 'pending'}</span>
-              <button onClick={() => toggle(todo.id)}>
-                {todo.complete ? 'uncomplete' : 'complete'}
-              </button>
-            </li>
+            <StyledTodo  onClick={() => toggle(todo.id)} complete={todo.complete} key={todo.id}>
+              <span>{todo.name}</span>
+            </StyledTodo>
           ))
         }
       </ul>
-    </StyledApp>
+    </div>
   )
 }
