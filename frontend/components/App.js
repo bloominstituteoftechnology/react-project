@@ -25,7 +25,7 @@ export default function App() {
         {
           todos.map(todo => (
             <StyledTodo  onClick={() => toggle(todo.id)} complete={todo.complete} key={todo.id}>
-              <span>{todo.name}</span>
+              <span>{todo.name}{todo.complete && ' DONE'}</span>
             </StyledTodo>
           ))
         }

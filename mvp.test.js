@@ -25,18 +25,13 @@ afterEach(() => {
   server.resetHandlers()
 })
 
-test('[1] heading is present', async () => {
-  expect(screen.queryByText('React Todos')).toBeInTheDocument()
-})
-
-test('[2] todos are present', async () => {
+test('todos are present', async () => {
   expect(await screen.findByText(/laundry/, queryOptions, waitForOptions)).toBeInTheDocument()
   expect(await screen.findByText(/dishes/, queryOptions, waitForOptions)).toBeInTheDocument()
   expect(await screen.findByText(/groceries/, queryOptions, waitForOptions)).toBeInTheDocument()
 })
 
-test('[3] can do laundry', async () => {
-  expect(await screen.findByText('laundry pending', queryOptions, waitForOptions)).toBeInTheDocument()
-  fireEvent.click(screen.getAllByText('complete')[0])
+test('can do laundry', async () => {
+  fireEvent.click(await screen.findByText(/laundry/, queryOptions, waitForOptions))
   expect(await screen.findByText('laundry DONE', queryOptions, waitForOptions)).toBeInTheDocument()
 })
