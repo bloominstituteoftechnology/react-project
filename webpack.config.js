@@ -19,7 +19,7 @@ const INDEX_JS_PATH = './frontend/index.js'
 const DIST_FOLDER = 'dist'
 const BUNDLE_FILE = 'index.js'
 
-const SOURCE_MAP = IS_DEV ? 'source-map' : false
+const SOURCE_MAP = IS_DEV ? 'inline-source-map' : false
 
 const config = {
   entry: INDEX_JS_PATH,
