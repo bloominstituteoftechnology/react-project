@@ -10,6 +10,7 @@ const STYLE_LOADER = 'style-loader'
 const CSS_LOADER = 'css-loader'
 const BABEL_LOADER = 'babel-loader'
 const STRING_REPLACE_LOADER = 'string-replace-loader'
+const FILE_LOADER = 'file-loader'
 
 const SERVER_URL = /http:\/\/localhost:9000/g
 const FRONTEND_PORT = 3003
@@ -18,6 +19,8 @@ const INDEX_HTML_PATH = './frontend/index.html'
 const INDEX_JS_PATH = './frontend/index.js'
 const DIST_FOLDER = 'dist'
 const BUNDLE_FILE = 'index.js'
+const IMAGES = 'images/'
+const AUDIO = 'audio/'
 
 const SOURCE_MAP = IS_DEV ? 'inline-source-map' : false
 
@@ -60,6 +63,32 @@ const config = {
         use: [
           STYLE_LOADER,
           CSS_LOADER,
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: FILE_LOADER,
+            options: {
+              name: '[name].[ext]',
+              outputPath: IMAGES,
+              publicPath: IMAGES,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.mp3$/,
+        use: [
+          {
+            loader: FILE_LOADER,
+            options: {
+              name: '[name].[ext]',
+              outputPath: AUDIO,
+              publicPath: AUDIO,
+            },
+          },
         ],
       },
     ],
