@@ -22,7 +22,7 @@ const BUNDLE_FILE = 'index.js'
 const IMAGES = 'images/'
 const AUDIO = 'audio/'
 
-const SOURCE_MAP = IS_DEV ? 'inline-source-map' : false
+const SOURCE_MAP = IS_DEV ? 'source-map' : false
 
 const config = {
   entry: INDEX_JS_PATH,
@@ -59,7 +59,6 @@ const config = {
       },
       {
         test: /\.css$/i,
-        exclude: /node_modules/,
         use: [
           STYLE_LOADER,
           CSS_LOADER,
